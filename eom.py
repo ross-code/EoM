@@ -21,19 +21,20 @@ def cash():
             print("Sorry please enter a number 1-3. Try again. ")
         nickname = input("Please give this account a nickname: ")
         accounts[type] = [nickname, float(input("How much money is in this account? "))]
-        print(accounts)
         total_cash = total(accounts)
 
-        return total_cash
+    print("To summarize, you have: ")
+    for i, j in enumerate(accounts):
+        print(accounts)
+        print(i)
+        print(j)
+        print(j[0] + ' in ' + j[1])
+    return total_cash
 
 def total(accounts):
     total_cash = 0
     for i in accounts:
-        print(accounts[i])
-        for j in accounts[i]:
-            total_cash += j[1]
-            print(j)
-    print(total_cash)
+        total_cash += accounts[i][1]
     return total_cash
 
 def net_worth(cash = 0, stocks = 0, realestate = 0):
@@ -48,4 +49,4 @@ def net_worth(cash = 0, stocks = 0, realestate = 0):
 # retirement_accounts()
 # debts
 net_worth = net_worth(cash())
-print(f"Your total net worth is: {net_worth}")
+print(f"Your total net worth is: ${net_worth}")
